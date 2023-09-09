@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BoxIcons CDN -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/home.css">
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <div id="app">
+      <header>
+        <h1>TODO App</h1>
+
+        <form action="/create-task" method="post">
+          <div class="grid__container">
+            <div class="description__container | grid-fluid">
+              <label for="description">Description</label>
+              <input type="text" name="description" id="description" placeholder="What do you need to do?" required>
+            </div>
+
+            <div class="category__container">
+              <label for="category">Category</label>
+
+              <select name="category" id="category" required>
+                <!-- <option value="placeholder">Choose a category</option> -->
+                <option value="personal">Personal</option>
+                <option value="family">Family</option>
+                <option value="work">Work</option>
+                <option value="others">Other</option>
+              </select>
+            </div>
+
+            <div class="date__container">
+              <label for="date">Due Date</label>
+              <input type="date" name="dueDate" id="date" required>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="add-task-button button"><i class='bx bx-plus'></i> Add Task</button>
+            <button type="button" class="delete-task-button button"><i class='bx bx-trash'></i> Delete Tasks</button>
+          </div>
+        </form>
+      </header>
+
+      <main>
+        <ul class="tasks__container">
+
+          <% for(let i of todo_list) { %>
+          <li class="task__container">
+            <input type="checkbox" id="<%= i._id %>">
+            <label for="<%= i._id %>" class="custom-checkbox align-self-start"><i class='bx bx-check'></i></label>
+
+            <div class="task-description__container | flex-grow-1">
+              <span class="task-description"><%= i.description %></span>
+              <span class="task-due-date"><i class='bx bx-calendar'></i> <%= i.dueDate %></span>
+            </div>
+
+            <div class="task-category__container | align-self-center">
+              <% if(i.category == 'family') { %>
+              <span class="task-category bg-danger"><%= i.category %></span>
+
+              <% } else if(i.category == 'personal') { %>
+              <span class="task-category bg-primary"><%= i.category %></span>
+
+              <% } else if(i.category == 'work') { %>
+              <span class="task-category bg-purple"><%= i.category %></span>
+
+              <% } else {%>
+              <span class="task-category bg-secondary"><%= i.category %></span>
+
+              <% } %>
+
+            </div>
+          </li>
+          <% } %>
+
+        </ul>
+      </main>
+    </div>
+
+    <!-- using jquery for using Ajax  -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+
+</html>

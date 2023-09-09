@@ -1,0 +1,212 @@
+/* 
+=============
+Global Styles
+=============
+*/
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: lightgrey;
+}
+
+input, select {
+  background-color: transparent;
+  border: none;
+  padding: 3px 0;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+h1 {
+  color: grey;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: .5rem;
+  text-align: center;
+}
+
+span {
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* 
+==============
+Global Classes
+==============
+*/
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.bg-primary {
+  background-color: dodgerblue
+}
+
+.bg-secondary {
+  background-color: grey;
+}
+
+.bg-danger {
+  background-color: red;
+}
+
+.bg-purple {
+  background-color: purple;
+}
+
+.button-group {
+  text-align: center;
+}
+
+.button-group .button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: .9rem;
+  line-height: 50px;
+  margin: 2rem 0;
+  outline: none;
+  text-transform: uppercase;
+  width: 150px;
+}
+
+
+.custom-checkbox {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.grid__container {
+  background-color: lightgrey;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border-color: lightgrey;
+  border-style: solid;
+  border-width: 1px 0 1px 0;
+}
+
+.grid__container>div {
+  background-color: white;
+  padding: 5px 1rem;
+}
+
+.grid__container label {
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.grid__container input, select {
+  color: grey;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.grid-fluid {
+  grid-column: 1 / -1;
+}
+
+/* 
+=============
+Custom Styles
+=============
+*/
+
+#app {
+  background-color: white;
+  margin: 50px auto 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 600px;
+}
+
+/* Header Styles Start */
+
+.add-task-button {
+  background-color: grey;
+}
+
+.delete-task-button {
+  background-color: orangered;
+}
+
+/* Header Styles End */
+
+
+/* Main Styles Start */
+.tasks__container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.tasks__container .task__container {
+  border-top: 1px solid lightgrey;
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem
+}
+
+.tasks__container .task__container label i {
+  visibility: hidden;
+}
+.tasks__container .task__container input[type="checkbox"]:checked~label {
+  background-color: greenyellow;
+  border-color: greenyellow;
+}
+
+.tasks__container .task__container input[type="checkbox"]:checked~label i {
+  color: white;
+  visibility: visible;
+}
+
+.tasks__container .task__container input[type="checkbox"]:checked~.task-description__container .task-description {
+  text-decoration: line-through;
+}
+
+.tasks__container .task__container .task-description__container .task-due-date {
+  color: grey;
+  margin-top: 5px;
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+
+.tasks__container .task__container .task-category__container span {
+  color: white;
+  font-size: .75rem;
+  padding: .5rem;
+  text-transform: uppercase;
+}
+
+/* Main Styles End */
